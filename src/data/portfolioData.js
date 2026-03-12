@@ -74,7 +74,12 @@ export const portfolioData = {
     },
     { title: "QuickBite Delivery", description: "Food ordering app with real-time tracking, restaurant management, and delivery optimization.", type: "Food Delivery", color: "orange", tags: ["React Native", "Firebase", "Maps API"] },
     { title: "MediCare Portal", description: "Patient management system with appointment booking, medical records, and telemedicine features.", type: "Healthcare", color: "pink", tags: ["Angular", "Django", "WebRTC"] },
-    { title: "HomeFind Properties", description: "Property listing platform with virtual tours, mortgage calculator, and agent booking system.", type: "Real Estate", color: "violet", tags: ["Next.js", "Three.js", "MongoDB"] }
+    {
+      title: "HomeFind Properties", description: "Property listing platform with virtual tours, mortgage calculator, and agent booking system.", type: "Real Estate", color: "violet", tags: ["Next.js", "Three.js", "MongoDB"], images: [
+        "https://placehold.co/600x400/cyan/white?text=DataFlow+Dashboard",
+        "https://placehold.co/600x400/cyan/white?text=Charts+and+Graphs"
+      ]
+    }
   ],
   whyMe: [
     { title: "Clear Communication", description: "Regular updates, quick responses, and transparent progress reports throughout the project.", color: "cyan" },
