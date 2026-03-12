@@ -33,9 +33,45 @@ export const portfolioData = {
     { title: "Performance Optimization", description: "Speed up your website with advanced optimization techniques. Faster load times mean better user experience and SEO.", color: "red" }
   ],
   portfolio: [
-    { title: "StyleHub E-Commerce", description: "Full-stack e-commerce platform with payment integration, inventory management, and admin dashboard.", type: "E-Commerce", color: "indigo", tags: ["React", "Tailwind CSS", "Express", "MongoDB"] },
-    { title: "DataFlow Analytics", description: "Real-time analytics dashboard with interactive charts, data visualization, and automated reporting.", type: "SaaS Dashboard", color: "cyan", tags: ["React", "D3.js", "Node.js"] },
-    { title: "LearnHub Platform", description: "Online learning platform with video courses, progress tracking, and certificate generation.", type: "EdTech", color: "emerald", tags: ["React", "Tailwind CSS", "Express", "MongoDB"] },
+    {
+      title: "StyleHub E-Commerce",
+      description: "Full-stack e-commerce platform with payment integration, inventory management, and admin dashboard.",
+      type: "E-Commerce",
+      color: "indigo",
+      tags: ["React", "Tailwind CSS", "Express", "MongoDB"],
+      images: [
+        "Screenshot 2026-03-12 022902.png",
+        "./StyleHub/Fullmain.png",
+        "./StyleHub/Itemdetail.png",
+
+        "./StyleHub/LoginPage.png",
+        "./StyleHub/Contact.png",
+        "./StyleHub/Cart.png",
+        "./StyleHub/SearchPage.png",
+
+      ]
+    },
+    {
+      title: "DataFlow Analytics",
+      description: "Real-time analytics dashboard with interactive charts, data visualization, and automated reporting.",
+      type: "SaaS Dashboard",
+      color: "cyan",
+      tags: ["React", "D3.js", "Node.js"],
+      images: [
+        "https://placehold.co/600x400/cyan/white?text=DataFlow+Dashboard",
+        "https://placehold.co/600x400/cyan/white?text=Charts+and+Graphs"
+      ]
+    },
+    {
+      title: "LearnHub Platform",
+      description: "Online learning platform with video courses, progress tracking, and certificate generation.",
+      type: "EdTech",
+      color: "emerald",
+      tags: ["React", "Tailwind CSS", "Express", "MongoDB"],
+      images: [
+        "https://placehold.co/600x400/emerald/white?text=LearnHub+Course"
+      ]
+    },
     { title: "QuickBite Delivery", description: "Food ordering app with real-time tracking, restaurant management, and delivery optimization.", type: "Food Delivery", color: "orange", tags: ["React Native", "Firebase", "Maps API"] },
     { title: "MediCare Portal", description: "Patient management system with appointment booking, medical records, and telemedicine features.", type: "Healthcare", color: "pink", tags: ["Angular", "Django", "WebRTC"] },
     { title: "HomeFind Properties", description: "Property listing platform with virtual tours, mortgage calculator, and agent booking system.", type: "Real Estate", color: "violet", tags: ["Next.js", "Three.js", "MongoDB"] }

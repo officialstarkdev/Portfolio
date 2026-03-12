@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -69,6 +69,60 @@ const getBadgeClasses = (color) => {
   return badges[color] || badges.indigo;
 }
 
+const ProjectImageCover = ({ project }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (isHovered && project.images && project.images.length > 1) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+      }, 1500);
+    }
+    return () => clearInterval(interval);
+  }, [isHovered, project?.images]);
+
+  if (!project.images || project.images.length === 0) {
+    return (
+      <div className={`aspect-video ${getGradientBg(project.color)} relative`}>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
+              {getPortfolioIcon(project.type)}
+            </div>
+            <span className="text-white/80 text-sm font-mono">{project.type}</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="aspect-video relative overflow-hidden bg-slate-800"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setCurrentImageIndex(0);
+      }}
+    >
+      {project.images.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`${project.title} screenshot ${index + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+        />
+      ))}
+
+      {/* Optional: Add a subtle overlay gradient to ensure text readability if needed */}
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-900/50 to-transparent z-20 pointer-events-none"></div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
   const { portfolio } = portfolioData;
 
@@ -89,16 +143,7 @@ const Portfolio = () => {
         <div className="section-animate grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolio.map((project, index) => (
             <div key={index} className="project-card glass-card rounded-2xl overflow-hidden group">
-              <div className={`aspect-video ${getGradientBg(project.color)} relative`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
-                      {getPortfolioIcon(project.type)}
-                    </div>
-                    <span className="text-white/80 text-sm font-mono">{project.type}</span>
-                  </div>
-                </div>
-              </div>
+              <ProjectImageCover project={project} />
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
                 <p className="text-slate-400 text-sm mb-4">
